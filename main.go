@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/hydrogen18/stalecucumber"
 	"github.com/prometheus/client_golang/prometheus"
 	"go.uber.org/zap"
 )
@@ -51,7 +52,7 @@ func goDo(w http.ResponseWriter, r *http.Request) {
 		logger.Error("unmarshal response failed.", zap.Error(err), zap.String("response", string(victoriaMetricsRAWAnswer)))
 		return
 	}
-	json.NewEncoder(w).Encode(victoriaMetricsAnswer)
+	stalecucumber.NewPickler(w).Pickle(victoriaMetricsAnswer)
 }
 
 func doRequest(URL string) ([]byte, error) {

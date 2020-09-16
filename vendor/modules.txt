@@ -11,6 +11,9 @@ github.com/golang/protobuf/ptypes/timestamp
 # github.com/gorilla/mux v1.8.0
 ## explicit
 github.com/gorilla/mux
+# github.com/hydrogen18/stalecucumber v0.0.0-20180226003526-6de214d141dd
+## explicit
+github.com/hydrogen18/stalecucumber
 # github.com/matttproud/golang_protobuf_extensions v1.0.1
 github.com/matttproud/golang_protobuf_extensions/pbutil
 # github.com/prometheus/client_golang v1.7.1
