@@ -52,7 +52,12 @@ func goDo(w http.ResponseWriter, r *http.Request) {
 		logger.Error("unmarshal response failed.", zap.Error(err), zap.String("response", string(victoriaMetricsRAWAnswer)))
 		return
 	}
-	stalecucumber.NewPickler(w).Pickle(victoriaMetricsAnswer)
+	_, err = stalecucumber.NewPickler(w).Pickle(victoriaMetricsAnswer)
+	if err != nil {
+		w.WriteHeader(http.StatusUnsupportedMediaType)
+		logger.Error("pickle response failed.", zap.Error(err))
+		return
+	}
 }
 
 func doRequest(URL string) ([]byte, error) {
