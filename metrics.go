@@ -100,6 +100,7 @@ func loggerMiddleware() func(http.Handler) http.Handler {
 				zap.String("path", request.path),
 				zap.Float64("requestTime", request.duration),
 				zap.String("remoteAddr", request.remoteAddr),
+				zap.Any("queryArgs", r.URL.Query()),
 			)
 
 		})

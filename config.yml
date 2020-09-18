@@ -1,4 +1,4 @@
 logger:
   level: debug
-victoriaMetrics: http://localhost:9090
-appPort: 8088
+victoriaMetrics: http://victoria.go:8428
+appPort: 8080
